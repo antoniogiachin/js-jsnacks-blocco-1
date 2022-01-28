@@ -1,21 +1,33 @@
-// Chiedere 10 volte all'utente un numero
+let i = 0;
 
-// Imposto variabile i fuori dal ciclo while
-let i= 0;
+let usrNumber;
 
-let somma = 0;
+let sum = 0;
 
-//Ciclo while ripete l'operazione fino al raggiungimento del valore 10
-while (i < 10 ){
-    let usrNumber = parseInt(prompt('Inserisci un numero!'));
-    console.log(usrNumber);
-    i++; 
-    somma += usrNumber;
-    console.log(somma);
+let numberList = '';
+
+while (i < 10){
     
+    usrNumber = parseInt(prompt('Inserisci qui i tuoi numeri preferiti!'));
+    
+    if (isNaN(usrNumber)){
+        alert('Inserisci un numero!!!')
+    } else {
+        sum += usrNumber;
+        i++
+        numberList += `<li> ${usrNumber}</li>`
+        console.log(numberList);
+    }
+
 }
 
-const h1 = document.getElementById('somma');
-h1.innerHTML = "La somma totale e': " + somma + "!";
+console.log(sum);
 
+let sumHtml = document.querySelector('.sum');
+sumHtml.innerHTML = `La somma dei numeri scelti è ${sum} !`;
 
+let numberListHtml = document.querySelector('.number-list');
+numberListHtml.innerHTML = `
+    <p> I numeri scelti sono: </p>
+    <ul> ${numberList} </ul>
+`;
