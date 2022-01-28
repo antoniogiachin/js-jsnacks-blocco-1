@@ -3,22 +3,33 @@ let usrNumber = parseInt(prompt('Inserisci un numero a piacere'));
 console.log(usrNumber);
 
 let moltiplicatore;
-let quadrato;
+let cubo;
+let cuboString = '3';
 let listaItems ="";
 
 const h1 = document.getElementById('prompt');
 
 const ul = document.querySelector("ul.list");
 
-for(let i = 0; i <= usrNumber; i++){
-    moltiplicatore = usrNumber-i;
-    quadrato = moltiplicatore * moltiplicatore;
-    console.log(quadrato);
+let j =0;
 
-    listaItems = `<li> Eseguo : ${moltiplicatore} * ${moltiplicatore} = ${quadrato} </li>`;
-    console.log(listaItems);
-    ul.innerHTML += listaItems;
-    
+let i = 0;
+
+while(usrNumber <= 0 || isNaN(usrNumber)){
+
+    alert('Inserisci un numero valido!');
+    window.location.reload();
+
 }
 
-h1.innerHTML = "Il numero scelto e': " + usrNumber;
+while (i <= usrNumber){
+        
+    moltiplicatore = usrNumber-i;
+    cubo = moltiplicatore * moltiplicatore * moltiplicatore;    
+    listaItems = `<li> Eseguo : ${moltiplicatore} * ${cuboString} = ${cubo} </li>`;
+    console.log(listaItems);
+    ul.innerHTML += listaItems;
+    h1.innerHTML = "Il numero scelto e': " + usrNumber;
+    i++ ;
+     
+}
